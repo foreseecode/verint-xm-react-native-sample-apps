@@ -1,5 +1,7 @@
-
 import React, { Component } from 'react';
+import { createStackNavigator } from "react-navigation-stack";
+import { createAppContainer } from "react-navigation";
+
 
 import { 
   Text, 
@@ -7,6 +9,7 @@ import {
   Image, 
   SafeAreaView,
   ScrollView, 
+  TextInput
 } from 'react-native';
 
 import { ForeSeeButton } from './ForeSeeButton'
@@ -19,7 +22,16 @@ const Space = (props) => {
   );
 };
 
-class App extends Component {
+async function getContactDetails(type, callback) {
+  try {
+    var details = await ForeSee.getContactDetails(type);
+    callback(details)
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+class MainScreen extends Component {
   constructor(props) {
     super(props);
 
@@ -35,7 +47,7 @@ class App extends Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <ScrollView style={{width: '90%'}} contentContainerStyle={{flexGrow : 1, justifyContent : 'center', alignItems: 'center'}}>
+        <ScrollView style={{width: '90%'}} contentContainerStyle={{flexGrow : 1, justifyContent : 'flex-start', alignItems: 'center'}}>
           <Space />
           <Image source={require('./assets/foresee_logo.png')} style={{width: 80, height: 80, alignItems: 'center'}} />
 
@@ -55,7 +67,9 @@ class App extends Component {
                 
                 // Launch an invite as a demo
                 ForeSee.checkEligibility() }} />
-            
+            <ForeSeeButton
+              title="Set Contact Details"
+              onPress={() => { this.props.navigation.navigate('SetContactDetails'); }} />
             <ForeSeeButton
               title="Reset State"
               onPress={() => { ForeSee.resetState() }} />
@@ -64,6 +78,58 @@ class App extends Component {
           </View>
         </ScrollView>
       </SafeAreaView>
+    );
+  }
+}
+
+
+
+class SetContactDetailsScreen extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state={
+      email: "",
+      phone: ""
+    }
+
+    getContactDetails("email", (details) => { this.setState({email: details}) })
+    getContactDetails("phone", (details) => { this.setState({phone: details}) })
+  }
+ 
+  render() {
+    return(
+      <SafeAreaView style={styles.container}>
+        <ScrollView style={{width: '90%'}} contentContainerStyle={{flexGrow : 1, justifyContent : 'flex-start', alignItems: 'center'}}>
+          <Space />
+          <Image source={require('./assets/foresee_logo.png')} style={{width: 80, height: 80, alignItems: 'center'}} />
+          <Space />
+          <Text style={[styles.text]}>Email Address:</Text>
+          <Space />
+          <TextInput
+            style={{ width: 300, height: 40, borderColor: 'gray', borderWidth: 1 }}
+            onChangeText={text => this.setState( {email: text} )}
+            value={this.state.email}
+          />
+          <Space />
+          <Text style={[styles.text]}>Phone Number:</Text>
+          <Space />
+          <TextInput
+            style={{ width: 300, height: 40, borderColor: 'gray', borderWidth: 1 }}
+            onChangeText={text => this.setState( {phone: text} )}
+            value={this.state.phone}
+          />
+          <Space />
+          <ForeSeeButton
+              title="Save"
+              style={{ width: 200, height: 40 }}
+              onPress={() => { 
+                ForeSee.setContactDetails(`${this.state.email}`, "email");
+                ForeSee.setContactDetails(`${this.state.phone}`, "phone"); 
+              } 
+          } />
+        </ScrollView>
+    </SafeAreaView>
     );
   }
 }
@@ -94,4 +160,25 @@ const foreSeeConfig = {
 	}
 }
 
-export default App;
+export default class App extends React.Component {
+  render() {
+    return <AppContainer />;
+  }
+}
+
+const AppNavigator = createStackNavigator({
+  Main: {
+    navigationOptions: {
+      title: "Contact Invite Sample"
+    },
+    screen: MainScreen
+  },
+  SetContactDetails: {
+    navigationOptions: {
+      title: "Set Contact Details"
+    },
+    screen: SetContactDetailsScreen
+  }
+});
+
+const AppContainer = createAppContainer(AppNavigator);
