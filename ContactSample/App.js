@@ -41,7 +41,11 @@ class App extends Component {
 
           <View style={{flex: 1, flexDirection: 'column', alignItems: 'stretch'}}>
             <Space />
-            <Text style={[styles.text]}>This sample demonstrates the In Session type, which denotes that the survey is presented at the point where the user accepts the invitation. Follow the instructions below to check eligibility.</Text>
+            <Text style={[styles.text]}>This sample demonstrates the Contact invite type, which delivers survey links via email or SMS. Use the "Set Contact Details" page to pre-set contact details for the invite. The SDK transitions to an idle state after an invite is displayed. Use "Reset State" to test again. (This will also delete pre-set contact details.). Follow the instructions below to check eligibility. Internet connection is required.</Text>
+            <Space />
+            <Text style={[styles.text]}>Option 1: The app can trigger an invite by launching 3 times. Try exiting the app and re-entering again.</Text>
+            <Space />
+            <Text style={[styles.text]}>Option 2: Significant events can also be used to trigger an invite. Click the button below a few times to trigger an invite.</Text>
             <ForeSeeButton
               title="Check Eligibility"
               onPress={() => { 
@@ -51,6 +55,7 @@ class App extends Component {
                 
                 // Launch an invite as a demo
                 ForeSee.checkEligibility() }} />
+            
             <ForeSeeButton
               title="Reset State"
               onPress={() => { ForeSee.resetState() }} />
@@ -65,20 +70,24 @@ class App extends Component {
 
 const foreSeeConfig = {
 	"clientId":"FSRTESTINGCODECID12345==",
-	"notificationType": "IN_SESSION",
+	"repeatDaysAfterDecline":5,
+	"repeatDaysAfterComplete":5,
+	"repeatDaysAfterAccept":3,
+	"notificationType":"CONTACT",
 	"measures":
 	[
 		{
-			"surveyId": "iphone_app_QA",
-			"surveyStyle": "modern",
+			"surveyId":"iphone_app_QA",
+			"launchCount": 3,
 			"significantEventThresholds": {
-				"instant_invite":1
+				"instant_invite":3
 			}
 		}
 	],
-	"cppParameters": {
-		"sample_app":"In Session Sample CPP"
-	},
+    "cppParameters":
+    {
+        "sample_app":"Contact Survey 2.0"
+    },
 	"invite": {
 		"logo": "foresee_logo",
 		"baseColor": [235, 43, 61]
