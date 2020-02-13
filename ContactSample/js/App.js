@@ -49,7 +49,7 @@ class MainScreen extends Component {
       <SafeAreaView style={styles.container}>
         <ScrollView style={{width: '90%'}} contentContainerStyle={{flexGrow : 1, justifyContent : 'flex-start', alignItems: 'center'}}>
           <Space />
-          <Image source={require('./assets/foresee_logo.png')} style={{width: 80, height: 80, alignItems: 'center'}} />
+          <Image source={require('../assets/foresee_logo.png')} style={{width: 80, height: 80, alignItems: 'center'}} />
 
           <View style={{flex: 1, flexDirection: 'column', alignItems: 'stretch'}}>
             <Space />
@@ -102,7 +102,7 @@ class SetContactDetailsScreen extends Component {
       <SafeAreaView style={styles.container}>
         <ScrollView style={{width: '90%'}} contentContainerStyle={{flexGrow : 1, justifyContent : 'flex-start', alignItems: 'center'}}>
           <Space />
-          <Image source={require('./assets/foresee_logo.png')} style={{width: 80, height: 80, alignItems: 'center'}} />
+          <Image source={require('../assets/foresee_logo.png')} style={{width: 80, height: 80, alignItems: 'center'}} />
           <Space />
           <Text style={[styles.text]}>Email Address:</Text>
           <Space />
