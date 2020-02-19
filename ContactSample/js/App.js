@@ -55,18 +55,20 @@ class MainScreen extends Component {
             <Space />
             <Text style={[styles.text]}>This sample demonstrates the Contact invite type, which delivers survey links via email or SMS. Use the "Set Contact Details" page to pre-set contact details for the invite. The SDK transitions to an idle state after an invite is displayed. Use "Reset State" to test again. (This will also delete pre-set contact details.). Follow the instructions below to check eligibility. Internet connection is required.</Text>
             <Space />
-            <Text style={[styles.text]}>Option 1: The app can trigger an invite by launching 3 times. Try exiting the app and re-entering again.</Text>
+            <Text style={[styles.text]}>Option 1: The app can trigger an invite by launching 3 times. Try exiting the app and re-entering 3 times, then click the "Check Eligibility" button.</Text>
             <Space />
-            <Text style={[styles.text]}>Option 2: Significant events can also be used to trigger an invite. Click the button below a few times to trigger an invite.</Text>
+            <Text style={[styles.text]}>Option 2: Significant events can also be used to trigger an invite. Click the "Increment Significant Event" button below a few times, then click the "Check Eligibility" button to trigger an invite.</Text>
             <ForeSeeButton
               title="Check Eligibility"
               onPress={() => { 
-                // Increment the significant event count so that we're eligible for an invite
-                // based on the criteria in foresee_configuration.json
-                ForeSee.incrementSignificantEvent("instant_invite")
-                
                 // Launch an invite as a demo
                 ForeSee.checkEligibility() }} />
+            <ForeSeeButton
+              title="Increment Significant Event"
+              onPress={() => { 
+                // Increment the significant event count so that we're eligible for an invite
+                // based on the criteria in foresee_configuration.json
+                ForeSee.incrementSignificantEvent("instant_invite")}} />
             <ForeSeeButton
               title="Set Contact Details"
               onPress={() => { this.props.navigation.navigate('SetContactDetails'); }} />
@@ -81,8 +83,6 @@ class MainScreen extends Component {
     );
   }
 }
-
-
 
 class SetContactDetailsScreen extends Component {
   constructor(props) {
