@@ -42,6 +42,8 @@ class App extends Component {
           <View style={{flex: 1, flexDirection: 'column', alignItems: 'stretch'}}>
             <Space />
             <Text style={[styles.text]}>This sample demonstrates the Exit Invite type, which denotes that the invitation appears as a local notification that appears after the app is exited. Follow the instructions below to check eligibility.</Text>
+            <Space />
+            <Text style={[styles.text]}>This application is using the launch count criteria. This criteria increments each time the app is backgrounded and refocused. The threshold for the launch count criteria is set to 3. Once the launch count criteria reaches 3, you can use check eligibility to trigger an invitation.</Text>
             <ForeSeeButton
               title="Check Eligibility"
               onPress={() => { 
@@ -67,8 +69,7 @@ const foreSeeConfig = {
         {
          "surveyId": "iphone_app_QA",
          "surveyStyle": "modern",
-         "daysSinceLaunch":0,
-         "launchCount":0
+         "launchCount":3
         }
     ],
     "invite": {

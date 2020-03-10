@@ -42,6 +42,8 @@ class App extends Component {
           <View style={{flex: 1, flexDirection: 'column', alignItems: 'stretch'}}>
             <Space />
             <Text style={[styles.text]}>This sample demonstrates the In Session type, which denotes that the survey is presented at the point where the user accepts the invitation. Follow the instructions below to check eligibility.</Text>
+            <Space />
+            <Text style={[styles.text]}>This app is using the significant event criteria. This criteria increments each time when the "Check Eligibility" button is clicked. The threshold for the significant event criteria is set to 1.</Text>
             <ForeSeeButton
               title="Check Eligibility"
               onPress={() => { 
