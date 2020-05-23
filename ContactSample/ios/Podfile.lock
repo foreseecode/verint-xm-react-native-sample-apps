@@ -18,10 +18,10 @@ PODS:
     - boost-for-react-native
     - DoubleConversion
     - glog
-  - ForeSee (5.3.3):
-    - ForeSee/ForeSeeCxMeasure (= 5.3.3)
-  - ForeSee/Core (5.3.3)
-  - ForeSee/ForeSeeCxMeasure (5.3.3):
+  - ForeSee (5.3.5):
+    - ForeSee/ForeSeeCxMeasure (= 5.3.5)
+  - ForeSee/Core (5.3.5)
+  - ForeSee/ForeSeeCxMeasure (5.3.5):
     - ForeSee/Core
   - glog (0.3.5)
   - RCTRequired (0.61.5)
@@ -188,7 +188,7 @@ PODS:
     - React-jsi (= 0.61.5)
   - React-jsinspector (0.61.5)
   - react-native-foresee-sdk (1.0.0):
-    - ForeSee (= 5.3.3)
+    - ForeSee (= 5.3.5)
     - React
   - react-native-safe-area-context (0.6.4):
     - React
@@ -229,9 +229,13 @@ PODS:
     - ReactCommon/jscallinvoker (= 0.61.5)
   - RNCMaskedView (0.1.6):
     - React
+  - RNDeviceInfo (5.5.3):
+    - React
   - RNGestureHandler (1.6.0):
     - React
   - RNReanimated (1.7.0):
+    - React
+  - RNScreens (2.1.0):
     - React
   - Yoga (1.14.0)
 
@@ -266,8 +270,10 @@ DEPENDENCIES:
   - ReactCommon/jscallinvoker (from `../node_modules/react-native/ReactCommon`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
+  - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
+  - RNScreens (from `../node_modules/react-native-screens`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -330,10 +336,14 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNCMaskedView:
     :path: "../node_modules/@react-native-community/masked-view"
+  RNDeviceInfo:
+    :path: "../node_modules/react-native-device-info"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
+  RNScreens:
+    :path: "../node_modules/react-native-screens"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -343,7 +353,7 @@ SPEC CHECKSUMS:
   FBLazyVector: aaeaf388755e4f29cd74acbc9e3b8da6d807c37f
   FBReactNativeSpec: 118d0d177724c2d67f08a59136eb29ef5943ec75
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
-  ForeSee: 81a88c98c5105e583d66e2815bb9c4d23000c1cc
+  ForeSee: d22a64fd66ea4a1cbbb5459717caf2fc024be810
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
   RCTRequired: b153add4da6e7dbc44aebf93f3cf4fcae392ddf1
   RCTTypeSafety: 9aa1b91d7f9310fc6eadc3cf95126ffe818af320
@@ -354,7 +364,7 @@ SPEC CHECKSUMS:
   React-jsi: cb2cd74d7ccf4cffb071a46833613edc79cdf8f7
   React-jsiexecutor: d5525f9ed5f782fdbacb64b9b01a43a9323d2386
   React-jsinspector: fa0ecc501688c3c4c34f28834a76302233e29dc0
-  react-native-foresee-sdk: d5cc633e3d2c2fa7dfd072e7507f0e3d7d3fe897
+  react-native-foresee-sdk: 0ec31c6f2652aab3ad0ff920de25efc824eca21b
   react-native-safe-area-context: 042dfc9d4db17196841df962ba9497f6e7a5bd02
   React-RCTActionSheet: 600b4d10e3aea0913b5a92256d2719c0cdd26d76
   React-RCTAnimation: 791a87558389c80908ed06cc5dfc5e7920dfa360
@@ -367,10 +377,12 @@ SPEC CHECKSUMS:
   React-RCTVibration: a49a1f42bf8f5acf1c3e297097517c6b3af377ad
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
   RNCMaskedView: e5b99bc191945f157adeede68da9d424462de177
+  RNDeviceInfo: 67607dfe9cfbed105838144c40187a8392aa404d
   RNGestureHandler: dde546180bf24af0b5f737c8ad04b6f3fa51609a
   RNReanimated: 031fe8d9ea93c2bd689a40f05320ef9d96f74d7f
+  RNScreens: 2a9cd603bcebc34319c92e595283d760dd1f55f5
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
 PODFILE CHECKSUM: ea604567c6ff279835291b3ca25fb1cf8f770f44
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1
