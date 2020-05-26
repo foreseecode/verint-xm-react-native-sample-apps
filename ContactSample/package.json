@@ -1,6 +1,6 @@
 {
   "name": "ContactSample",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -14,7 +14,7 @@
     "react": "16.9.0",
     "react-native": "0.61.5",
     "react-native-device-info": "^5.5.3",
-    "react-native-foresee-sdk": "file:../../react-native-foresee-sdk/react-native-foresee-sdk-1.0.0.tgz",
+    "react-native-foresee-sdk": "^1.0.0",
     "react-native-gesture-handler": "^1.5.5",
     "react-native-reanimated": "^1.7.0",
     "react-native-safe-area-context": "^0.6.4",
