@@ -2,11 +2,11 @@
 
 ## Requirements
 
-* react: 16.9.0
-* react-native: 0.61.4
+* react: 18.2.0
+* react-native: 0.72.3
 * Android: 22+
 * iOS: 11.0+
-* ForeSee React Native SDK 1.0.0
+* ForeSee React Native SDK 2.0.0
 
 ## Installing
 Clone this repo:
