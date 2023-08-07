@@ -134,29 +134,33 @@ class SetContactDetailsScreen extends Component {
 }
 
 const foreSeeConfig = {
-	"clientId":"FSRTESTINGCODECID12345==",
-	"repeatDaysAfterDecline":5,
-	"repeatDaysAfterComplete":5,
-	"repeatDaysAfterAccept":3,
-	"notificationType":"CONTACT",
-	"measures":
-	[
-		{
-			"surveyId":"iphone_app_QA",
-			"launchCount": 3,
-			"significantEventThresholds": {
-				"instant_invite":3
-			}
-		}
-	],
-    "cppParameters":
-    {
+    "customerId":"FSRTESTINGCODECID12345==",
+    "repeatDaysAfterDecline":5,
+    "repeatDaysAfterComplete":5,
+    "repeatDaysAfterAccept":3,
+    "notificationType":"CONTACT",
+    "measures":
+    [
+      {
+          "surveyId":"iphone_app_QA",
+          "launchCount": 3,
+          "significantEventThresholds": {
+              "instant_invite":3
+          }
+      }
+    ],
+    "cppParameters": {
         "sample_app":"Contact Survey 2.0"
     },
-	"invite": {
-		"logo": "foresee_logo",
-		"baseColor": [235, 43, 61]
-	}
+    "invite": {
+        "logo": "foresee_logo",
+        "baseColor": [235, 43, 61]
+    },
+    "survey": {
+        "closeButtonColor": [12, 12, 12],
+        "closeButtonBackgroundColor": [12, 12, 12],
+        "headerColor": [237, 38, 54]
+    }
 }
 
 export default class App extends React.Component {

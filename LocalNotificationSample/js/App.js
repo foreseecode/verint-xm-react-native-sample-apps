@@ -62,19 +62,24 @@ class App extends Component {
 }
 
 const foreSeeConfig = {
-  "clientId":"FSRTESTINGCODECID12345==",
+  "customerId":"FSRTESTINGCODECID12345==",
   "notificationType":"EXIT_INVITE",
   "measures":
     [
         {
-         "surveyId": "iphone_app_QA",
-         "surveyStyle": "modern",
-         "launchCount":3
+            "surveyId": "iphone_app_QA",
+            "surveyStyle": "modern",
+            "launchCount":3
         }
     ],
     "invite": {
         "logo": "ForeSee_logo",
         "baseColor": [237, 38, 54]
+    },
+    "survey": {
+        "closeButtonColor": [12, 12, 12],
+        "closeButtonBackgroundColor": [12, 12, 12],
+        "headerColor": [237, 38, 54]
     }
 }
 
