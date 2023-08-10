@@ -66,25 +66,30 @@ class App extends Component {
 }
 
 const foreSeeConfig = {
-	"clientId":"FSRTESTINGCODECID12345==",
-	"notificationType": "IN_SESSION",
-	"measures":
-	[
-		{
-			"surveyId": "iphone_app_QA",
-			"surveyStyle": "modern",
-			"significantEventThresholds": {
-				"instant_invite":1
-			}
-		}
-	],
-	"cppParameters": {
-		"sample_app":"In Session Sample CPP"
-	},
-	"invite": {
-		"logo": "foresee_logo",
-		"baseColor": [235, 43, 61]
-	}
+    "customerId":"FSRTESTINGCODECID12345==",
+    "notificationType": "IN_SESSION",
+    "measures":
+    [
+      {
+          "surveyId": "iphone_app_QA",
+          "surveyStyle": "modern",
+          "significantEventThresholds": {
+              "instant_invite":1
+          }
+      }
+    ],
+    "cppParameters": {
+        "sample_app":"In Session Sample CPP"
+    },
+    "invite": {
+        "logo": "foresee_logo",
+        "baseColor": [235, 43, 61]
+    },
+    "survey": {
+        "closeButtonColor": [12, 12, 12],
+        "closeButtonBackgroundColor": [12, 12, 12],
+        "headerColor": [237, 38, 54]
+    }
 }
 
 export default App;
