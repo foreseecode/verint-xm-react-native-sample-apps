@@ -157,7 +157,7 @@ const config = {
         "baseColor": [43, 101, 242],
     },
     "survey": {
-        "closeButtonColor": [12, 12, 12],
+        "closeButtonColor": [255, 255, 255],
         "closeButtonBackgroundColor": [12, 12, 12],
         "headerColor": [43, 101, 242],
     }
