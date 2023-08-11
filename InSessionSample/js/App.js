@@ -11,7 +11,7 @@ import {
 
 import { VerintButton } from './VerintButton'
 import { styles } from './styles'
-import { VerintXM } from 'react-native-verint-sdk'
+import { VerintXM } from 'react-native-verint-xm-sdk'
 
 const Space = (props) => {
   return (

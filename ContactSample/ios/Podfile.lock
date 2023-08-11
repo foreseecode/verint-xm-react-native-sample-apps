@@ -377,7 +377,7 @@ PODS:
     - glog
   - react-native-safe-area-context (0.6.4):
     - React
-  - react-native-verint-sdk (2.0.0):
+  - react-native-verint-xm-sdk (3.0.0):
     - React
     - Verint-XM (= 7.0.3)
     - Verint-XM/Digital (= 7.0.3)
@@ -583,7 +583,7 @@ DEPENDENCIES:
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
-  - react-native-verint-sdk (from `../node_modules/react-native-verint-sdk`)
+  - react-native-verint-xm-sdk (from `../node_modules/react-native-verint-xm-sdk`)
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -670,8 +670,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/logger"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
-  react-native-verint-sdk:
-    :path: "../node_modules/react-native-verint-sdk"
+  react-native-verint-xm-sdk:
+    :path: "../node_modules/react-native-verint-xm-sdk"
   React-NativeModulesApple:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios"
   React-perflogger:
@@ -750,7 +750,7 @@ SPEC CHECKSUMS:
   React-jsinspector: b511447170f561157547bc0bef3f169663860be7
   React-logger: c5b527272d5f22eaa09bb3c3a690fee8f237ae95
   react-native-safe-area-context: 52342d2d80ea8faadd0ffa76d83b6051f20c5329
-  react-native-verint-sdk: b469658122f36e54f67a1444a2a25d3cf28f6d83
+  react-native-verint-xm-sdk: 533df4f068a2e8852cf4bea82b9e756ec5a7f59e
   React-NativeModulesApple: c57f3efe0df288a6532b726ad2d0322a9bf38472
   React-perflogger: 6bd153e776e6beed54c56b0847e1220a3ff92ba5
   React-RCTActionSheet: c0b62af44e610e69d9a2049a682f5dba4e9dff17
