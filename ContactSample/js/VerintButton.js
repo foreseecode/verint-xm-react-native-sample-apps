@@ -1,8 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Text } from 'react-native';
 
-
-export const ForeSeeButton = (props) => {
+export const VerintButton = (props) => {
     const { title = 'Need Title', style = {}, textStyle = {}, onPress } = props;
 
     return (
@@ -19,12 +18,10 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         justifyContent: 'center',
         alignItems: 'center',
-
         shadowRadius: 3,
         shadowOpacity: 0.25,
         marginTop: 20,
-
-        backgroundColor: '#EB2B3D',
+        backgroundColor: '#2b65f2',
         shadowColor: '#000000',
         shadowOffset: { height: 3, width: 0 },
     },
