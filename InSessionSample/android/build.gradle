@@ -39,7 +39,7 @@ allprojects {
             url = uri("https://maven.pkg.github.com/foreseecode/public-packages")
             credentials {
                 // Please see the 'Getting Started' guide for information on how to create these
-                // https://developer.foresee.com/docs/tutorial
+                // https://connect.verint.com/developers/fscxs/w/mobilesdk/24123/getting-started
                 username = System.getenv("GITHUB_USERNAME")
                 password = System.getenv("GITHUB_PERSONAL_KEY")
             }
