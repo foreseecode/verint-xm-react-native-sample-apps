@@ -7,6 +7,7 @@ import {
   Image, 
   SafeAreaView,
   ScrollView, 
+  PermissionsAndroid,
 } from 'react-native';
 
 import { VerintButton } from './VerintButton'
@@ -19,6 +20,19 @@ const Space = (props) => {
   );
 };
 
+const requestNotificationPermission = async () => {
+  try {
+    const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      console.log('You can use the camera');
+    } else {
+      console.log('Camera permission denied');
+    }
+  } catch (err) {
+    console.warn(err);
+  }
+};
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -27,9 +41,15 @@ class App extends Component {
       siginificantEvent: 0,
       pageViews: 0
     }
+
+    if (Platform.OS === 'android') {
+      requestNotificationPermission();
+    }
  
     VerintXM.setDebugLogEnabled(true)
+    VerintXM.setSkipPoolingCheck(true)
     VerintXM.startWithConfigurationJson(JSON.stringify(config))
+
   }
   
   render() {
@@ -79,7 +99,7 @@ const config = {
     "survey": {
         "closeButtonColor": [255, 255, 255],
         "closeButtonBackgroundColor": [12, 12, 12],
-        "headerColor": [237, 38, 54]
+        "headerColor": [43, 101, 242]
     }
 }
 
