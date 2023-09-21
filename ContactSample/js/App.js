@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
 
-
 import { 
   Text, 
   View, 
@@ -12,9 +11,9 @@ import {
   TextInput
 } from 'react-native';
 
-import { ForeSeeButton } from './ForeSeeButton'
+import { VerintButton } from './VerintButton'
+import { VerintXM } from 'react-native-verint-xm-sdk'
 import { styles } from './styles'
-import { ForeSee } from 'react-native-foresee-sdk'
 
 const Space = (props) => {
   return (
@@ -24,7 +23,7 @@ const Space = (props) => {
 
 async function getContactDetails(type, callback) {
   try {
-    var details = await ForeSee.getContactDetails(type);
+    var details = await VerintXM.getContactDetails(type);
     callback(details)
   } catch (e) {
     console.error(e);
@@ -40,8 +39,8 @@ class MainScreen extends Component {
       pageViews: 0
     }
  
-    ForeSee.setDebugLogEnabled(true)
-    ForeSee.startWithConfigurationJson(JSON.stringify(foreSeeConfig))
+    VerintXM.setDebugLogEnabled(true)
+    VerintXM.startWithConfigurationJson(JSON.stringify(config))
   }
   
   render() {
@@ -49,7 +48,7 @@ class MainScreen extends Component {
       <SafeAreaView style={styles.container}>
         <ScrollView style={{width: '90%'}} contentContainerStyle={{flexGrow : 1, justifyContent : 'flex-start', alignItems: 'center'}}>
           <Space />
-          <Image source={require('../assets/foresee_logo.png')} style={{width: 80, height: 80, alignItems: 'center'}} />
+          <Image source={require('../assets/verint.png')} style={{width: 167, height: 75, resizeMode: 'contain', alignItems: 'center'}} />
 
           <View style={{flex: 1, flexDirection: 'column', alignItems: 'stretch'}}>
             <Space />
@@ -58,23 +57,23 @@ class MainScreen extends Component {
             <Text style={[styles.text]}>Option 1: The app can trigger an invite by launching 3 times. Try exiting the app and re-entering 3 times, then click the "Check Eligibility" button.</Text>
             <Space />
             <Text style={[styles.text]}>Option 2: Significant events can also be used to trigger an invite. Click the "Increment Significant Event" button below a few times, then click the "Check Eligibility" button to trigger an invite.</Text>
-            <ForeSeeButton
+            <VerintButton
               title="Check Eligibility"
               onPress={() => { 
                 // Launch an invite as a demo
-                ForeSee.checkEligibility() }} />
-            <ForeSeeButton
+                VerintXM.checkEligibility() }} />
+            <VerintButton
               title="Increment Significant Event"
               onPress={() => { 
                 // Increment the significant event count so that we're eligible for an invite
-                // based on the criteria in foresee_configuration.json
-                ForeSee.incrementSignificantEvent("instant_invite")}} />
-            <ForeSeeButton
+                // based on the criteria in the config
+                VerintXM.incrementSignificantEvent("instant_invite")}} />
+            <VerintButton
               title="Set Contact Details"
               onPress={() => { this.props.navigation.navigate('SetContactDetails'); }} />
-            <ForeSeeButton
+            <VerintButton
               title="Reset State"
-              onPress={() => { ForeSee.resetState() }} />
+              onPress={() => { VerintXM.resetState() }} />
             <Space />
             <Text style={[styles.text]}>Once the invite is shown, the SDK drops into an idle state until the repeat days have elapsed. Click here to reset the state of the SDK.</Text>
           </View>
@@ -102,7 +101,7 @@ class SetContactDetailsScreen extends Component {
       <SafeAreaView style={styles.container}>
         <ScrollView style={{width: '90%'}} contentContainerStyle={{flexGrow : 1, justifyContent : 'flex-start', alignItems: 'center'}}>
           <Space />
-          <Image source={require('../assets/foresee_logo.png')} style={{width: 80, height: 80, alignItems: 'center'}} />
+          <Image source={require('../assets/verint.png')} style={{width: 167, height: 75, resizeMode: 'contain', alignItems: 'center'}} />
           <Space />
           <Text style={[styles.text]}>Email Address:</Text>
           <Space />
@@ -120,12 +119,12 @@ class SetContactDetailsScreen extends Component {
             value={this.state.phone}
           />
           <Space />
-          <ForeSeeButton
+          <VerintButton
               title="Save"
               style={{ width: 200, height: 40 }}
               onPress={() => { 
-                ForeSee.setContactDetails(`${this.state.email}`, "email");
-                ForeSee.setContactDetails(`${this.state.phone}`, "phone"); 
+                VerintXM.setContactDetails(`${this.state.email}`, "email");
+                VerintXM.setContactDetails(`${this.state.phone}`, "phone"); 
               } 
           } />
         </ScrollView>
@@ -134,30 +133,34 @@ class SetContactDetailsScreen extends Component {
   }
 }
 
-const foreSeeConfig = {
-	"clientId":"FSRTESTINGCODECID12345==",
-	"repeatDaysAfterDecline":5,
-	"repeatDaysAfterComplete":5,
-	"repeatDaysAfterAccept":3,
-	"notificationType":"CONTACT",
-	"measures":
-	[
-		{
-			"surveyId":"iphone_app_QA",
-			"launchCount": 3,
-			"significantEventThresholds": {
-				"instant_invite":3
-			}
-		}
-	],
-    "cppParameters":
-    {
+const config = {
+    "customerId":"FSRTESTINGCODECID12345==",
+    "repeatDaysAfterDecline":5,
+    "repeatDaysAfterComplete":5,
+    "repeatDaysAfterAccept":3,
+    "notificationType":"CONTACT",
+    "measures":
+    [
+      {
+          "surveyId":"iphone_app_QA",
+          "launchCount": 3,
+          "significantEventThresholds": {
+              "instant_invite":3
+          }
+      }
+    ],
+    "cppParameters": {
         "sample_app":"Contact Survey 2.0"
     },
-	"invite": {
-		"logo": "foresee_logo",
-		"baseColor": [235, 43, 61]
-	}
+    "invite": {
+        "logo": "verint_logo",
+        "baseColor": [43, 101, 242],
+    },
+    "survey": {
+        "closeButtonColor": [255, 255, 255],
+        "closeButtonBackgroundColor": [12, 12, 12],
+        "headerColor": [43, 101, 242],
+    }
 }
 
 export default class App extends React.Component {

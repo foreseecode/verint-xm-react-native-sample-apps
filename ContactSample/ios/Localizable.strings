@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  ContactSample
+
+  Created by Burkett, Wayne on 8/7/23.
+  
+*/
+
+"EXP_Invite_Contact_InvitePage_Title"="We'd like your feedback!";
+"EXP_Misc_BrandName"="ContactInvitationSample";
+"EXP_Misc_ClientPrivacyPolicyURL"="https://www.verint.com/privacy-policy";

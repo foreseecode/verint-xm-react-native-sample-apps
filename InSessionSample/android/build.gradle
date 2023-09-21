@@ -2,26 +2,26 @@
 
 buildscript {
     ext {
-        buildToolsVersion = "28.0.3"
-        minSdkVersion = 22
-        compileSdkVersion = 28
-        targetSdkVersion = 28
+        buildToolsVersion = "33.0.0"
+        minSdkVersion = 21
+        compileSdkVersion = 33
+        targetSdkVersion = 33
+
+        // We use NDK 23 which has both M1 support and is the side-by-side NDK version from AGP.
+        ndkVersion = "23.1.7779620"
     }
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:3.4.2")
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath("com.android.tools.build:gradle")
+        classpath("com.facebook.react:react-native-gradle-plugin")
     }
 }
 
 allprojects {
     repositories {
-        mavenLocal()
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url("$rootDir/../node_modules/react-native/android")
@@ -34,5 +34,16 @@ allprojects {
         google()
         jcenter()
         maven { url 'https://jitpack.io' }
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/foreseecode/public-packages")
+            credentials {
+                // Please see the 'Getting Started' guide for information on how to create these
+                // https://connect.verint.com/developers/fscxs/w/mobilesdk/24123/getting-started
+                username = System.getenv("GITHUB_USERNAME")
+                password = System.getenv("GITHUB_PERSONAL_KEY")
+            }
+        }
+        mavenLocal()
     }
 }

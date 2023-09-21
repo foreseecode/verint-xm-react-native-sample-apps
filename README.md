@@ -1,17 +1,17 @@
-## foresee-sdk-react-native-sample-apps
+## react-native-sample-apps
 
 ## Requirements
 
-* react: 16.9.0
-* react-native: 0.61.4
+* react: 18.2.0
+* react-native: 0.72.3
 * Android: 22+
 * iOS: 11.0+
-* ForeSee React Native SDK 1.0.0
+* Verint-XM React Native SDK 3.0.0+
 
 ## Installing
 Clone this repo:
 
-    $ git clone https://github.com/foreseecode/foresee-sdk-react-native-sample-apps.git
+    $ git clone https://github.com/foreseecode/react-native-sample-apps.git
 
 Once it's done, you will find 3 project folders:
   
@@ -34,7 +34,7 @@ To start a project, run
 ## Projects
 
 ## InSessionSample
-This sample project demonstrates a basic implementation of the ForeSee CXMeasure In Session Invite code in an empty app.
+This sample project demonstrates a basic implementation of the Verint-XM Predictive In-Session Invite code in an empty app.
 It uses a native view to show a modal dialog to the user inviting them to take a survey when they have met the 
 configured threshold.
 

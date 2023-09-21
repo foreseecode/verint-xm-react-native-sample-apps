@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ContactSample</string>
+    <string name="EXP_Misc_BrandName">Verint</string>
+    <string name="EXP_Misc_ClientPrivacyPolicyURL">https://www.verint.com</string>
 </resources>
