@@ -82,25 +82,27 @@ class App extends Component {
 }
 
 const config = {
-  "customerId":"FSRTESTINGCODECID12345==",
-  "notificationType":"EXIT_INVITE",
-  "measures":
-    [
-        {
-            "surveyId": "iphone_app_QA",
-            "surveyStyle": "modern",
-            "launchCount":3
-        }
-    ],
-    "invite": {
+	"notificationType": "EXIT_INVITE",
+	"invite": {
         "logo": "VerintXM.logo",
         "baseColor": [43, 101, 242]
-    },
-    "survey": {
-        "closeButtonColor": [255, 255, 255],
-        "closeButtonBackgroundColor": [12, 12, 12],
-        "headerColor": [43, 101, 242]
-    }
+	},
+	"survey": {
+		"closeButtonColor": [255, 255, 255],
+		"closeButtonBackgroundColor": [0, 122, 255],
+		"headerColor": [0, 122, 255]
+	},
+	"surveyManagement": {
+		"surveys": [
+			{
+				"url": "https://survey.vovici.com/se/705E3F053FB8395201",
+				"name": "SampleSurvey",
+        "significantEventThresholds": {
+          "instant_invite":1
+        }
+      }
+		]
+	}
 }
 
 

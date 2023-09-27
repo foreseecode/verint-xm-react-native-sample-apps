@@ -134,33 +134,34 @@ class SetContactDetailsScreen extends Component {
 }
 
 const config = {
-    "customerId":"FSRTESTINGCODECID12345==",
-    "repeatDaysAfterDecline":5,
-    "repeatDaysAfterComplete":5,
-    "repeatDaysAfterAccept":3,
-    "notificationType":"CONTACT",
-    "measures":
-    [
+	"notificationType": "CONTACT",
+	"cppParameters": {
+		"sample_app":"Contact Sample CPP"
+	},
+	"invite": {
+		"logo": "exp_logo",
+		"baseColor": [0, 122, 255]
+	},
+	"survey": {
+		"closeButtonColor": [255, 255, 255],
+		"closeButtonBackgroundColor": [0, 122, 255],
+		"headerColor": [0, 122, 255]
+	},
+  "surveyManagement": {
+    "surveys": [
       {
-          "surveyId":"iphone_app_QA",
-          "launchCount": 3,
-          "significantEventThresholds": {
-              "instant_invite":3
-          }
+        "campaignId": "0",
+        "groupId": "1885224709",
+        "projectId": "1069037906",
+        "url": "https://survey.vovici.com",
+        "name": "SampleSurvey",
+        "launchCount": 3,
+        "significantEventThresholds": {
+          "instant_invite":3
+        }
       }
-    ],
-    "cppParameters": {
-        "sample_app":"Contact Survey 2.0"
-    },
-    "invite": {
-        "logo": "verint_logo",
-        "baseColor": [43, 101, 242],
-    },
-    "survey": {
-        "closeButtonColor": [255, 255, 255],
-        "closeButtonBackgroundColor": [12, 12, 12],
-        "headerColor": [43, 101, 242],
-    }
+    ]
+  }  
 }
 
 export default class App extends React.Component {

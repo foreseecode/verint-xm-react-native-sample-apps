@@ -66,18 +66,7 @@ class App extends Component {
 }
 
 const config = {
-    "customerId":"FSRTESTINGCODECID12345==",
     "notificationType": "IN_SESSION",
-    "measures":
-    [
-      {
-          "surveyId": "iphone_app_QA",
-          "surveyStyle": "modern",
-          "significantEventThresholds": {
-              "instant_invite":1
-          }
-      }
-    ],
     "cppParameters": {
         "sample_app":"In Session Sample CPP"
     },
@@ -89,7 +78,18 @@ const config = {
         "closeButtonColor": [255, 255, 255],
         "closeButtonBackgroundColor": [12, 12, 12],
         "headerColor": [43, 101, 242]
-    }
+    },
+    "surveyManagement": {
+      "surveys": [
+        {
+          "url": "https://survey.vovici.com/se/705E3F053FB8395201",
+          "name": "SampleSurvey",
+          "significantEventThresholds": {
+            "instant_invite":1
+          }
+        }
+      ]
+    }  
 }
 
 export default App;
