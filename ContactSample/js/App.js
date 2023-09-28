@@ -41,6 +41,7 @@ class MainScreen extends Component {
  
     VerintXM.setDebugLogEnabled(true)
     VerintXM.startWithConfigurationJson(JSON.stringify(config))
+    VerintXM.setSkipPoolingCheck(true)
   }
   
   render() {
