@@ -47,8 +47,8 @@ class App extends Component {
     }
  
     VerintXM.setDebugLogEnabled(true)
-    VerintXM.setSkipPoolingCheck(true)
     VerintXM.startWithConfigurationJson(JSON.stringify(config))
+    VerintXM.setSkipPoolingCheck(true)
 
   }
   
