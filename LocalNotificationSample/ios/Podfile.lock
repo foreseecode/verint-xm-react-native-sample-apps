@@ -315,10 +315,11 @@ PODS:
   - React-jsinspector (0.72.3)
   - React-logger (0.72.3):
     - glog
-  - react-native-verint-xm-sdk (3.0.0):
+  - react-native-verint-xm-sdk (3.0.1):
     - React
-    - Verint-XM (= 7.1.0)
-    - Verint-XM/Digital (= 7.1.0)
+    - Verint-XM (= 7.1.1)
+    - Verint-XM/Digital (= 7.1.1)
+    - Verint-XM/SurveyManagement (= 7.1.1)
   - React-NativeModulesApple (0.72.3):
     - hermes-engine
     - React-callinvoker
@@ -430,14 +431,14 @@ PODS:
     - React-logger (= 0.72.3)
     - React-perflogger (= 0.72.3)
   - SocketRocket (0.6.1)
-  - Verint-XM (7.1.0):
-    - Verint-XM/SurveyManagement (= 7.1.0)
-  - Verint-XM/Core (7.1.0)
-  - Verint-XM/Digital (7.1.0):
+  - Verint-XM (7.1.1):
+    - Verint-XM/SurveyManagement (= 7.1.1)
+  - Verint-XM/Core (7.1.1)
+  - Verint-XM/Digital (7.1.1):
     - Verint-XM/Core
-  - Verint-XM/Predictive (7.1.0):
+  - Verint-XM/Predictive (7.1.1):
     - Verint-XM/Core
-  - Verint-XM/SurveyManagement (7.1.0):
+  - Verint-XM/SurveyManagement (7.1.1):
     - Verint-XM/Predictive
   - Yoga (1.14.0)
 
@@ -599,7 +600,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 59d1eb03af7d30b7d66589c410f13151271e8006
   React-jsinspector: b511447170f561157547bc0bef3f169663860be7
   React-logger: c5b527272d5f22eaa09bb3c3a690fee8f237ae95
-  react-native-verint-xm-sdk: 2dae43534db8899d4e49ff1883f735f4fbe198ff
+  react-native-verint-xm-sdk: 22bc3722a5b2c9d9432eb2045e1c6d3539d0d78b
   React-NativeModulesApple: c57f3efe0df288a6532b726ad2d0322a9bf38472
   React-perflogger: 6bd153e776e6beed54c56b0847e1220a3ff92ba5
   React-RCTActionSheet: c0b62af44e610e69d9a2049a682f5dba4e9dff17
@@ -618,9 +619,9 @@ SPEC CHECKSUMS:
   React-utils: bcb57da67eec2711f8b353f6e3d33bd8e4b2efa3
   ReactCommon: 3ccb8fb14e6b3277e38c73b0ff5e4a1b8db017a9
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
-  Verint-XM: 0bf7d93797b4978fc8ca985ce6e137f7b59bfa3e
+  Verint-XM: 9b3621ecaf41c9ecb72577fa41ef8c3a6500cd11
   Yoga: 8796b55dba14d7004f980b54bcc9833ee45b28ce
 
 PODFILE CHECKSUM: f5fddbfefbfbf3ec08842b3e9a96ae91670a909b
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.15.2

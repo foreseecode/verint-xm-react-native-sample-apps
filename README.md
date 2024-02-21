@@ -6,7 +6,7 @@
 * react-native: 0.72.3
 * Android: 22+
 * iOS: 11.0+
-* Verint-XM React Native SDK 3.0.0+
+* Verint-XM React Native SDK 3.0.1+
 
 ## Installing
 Clone this repo:
