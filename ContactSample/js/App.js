@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
+import { NativeEventEmitter, NativeModules } from 'react-native';
 
 import { 
   Text, 
@@ -29,6 +30,12 @@ async function getContactDetails(type, callback) {
     console.error(e);
   }
 }
+
+const emitter = new NativeEventEmitter(VerintXM);
+emitter.addListener(
+  'onInvitePresented',
+  (data) => console.log(data)
+);
 
 class MainScreen extends Component {
   constructor(props) {
