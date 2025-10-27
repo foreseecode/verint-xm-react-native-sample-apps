@@ -29,7 +29,7 @@ See [Getting Started guide](https://connect.verint.com/developers/xmsdk/w/mobile
 ## Prerequisites
 
 Make sure React Native and required Environment configured on your machine. 
-See: https://reactnative.dev/docs/environment-setup
+See [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
 ## Installing
 
@@ -51,22 +51,28 @@ In each project folder, run
 
 To start a project, run
     
+    iOS:
     $ npx react-native run-ios
-    or..
+    
+    Android:
+    Have an Android emulator running (quickest way to get started), or a device connected.
     $ npx react-native run-android
 
 ## Projects
 
 ## InSessionSample
-This sample project demonstrates a basic implementation of the Verint-XM Predictive In-Session Invite code in an empty app.
+This sample demonstrates a basic implementation of the Verint-XM In-Session Invite code in an empty app.
 It uses a native view to show a modal dialog to the user inviting them to take a survey when they have met the 
 configured threshold.
 
+## InSessionModernSample
+This sample demonstrates the same functionality as InSessionSample, but is running with the New Architecture (Fabric).
+
 ## ContactInvitationSample
 
-This example shows how to provide a user's contact information to the SDK for use in a CONTACT mode survey.
+This sample shows how to provide a user's contact information to the SDK for use in a CONTACT mode survey.
 
 ## LocalNotificationSample
 
-This sample project demonstrates a local notification invite. Accept the invite and then close the application. 
+This sample demonstrates a local notification invite. Accept the invite and then close the application. 
 You will receive a local notification linking the survey.
