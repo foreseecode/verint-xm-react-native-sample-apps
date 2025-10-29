@@ -100,7 +100,6 @@ function AppContent() {
       <ScrollView style={{ width: '90%' }} contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Space />
         <Image source={require('./assets/verint.png')} style={{ width: 167, height: 75, resizeMode: 'contain', alignItems: 'center' }} />
-
         <View style={{ flex: 1, flexDirection: 'column', alignItems: 'stretch' }}>
           <Space />
           <Text style={[styles.text]}>This sample demonstrates the In Session type, which denotes that the survey is presented at the point where the user accepts the invitation. Follow the instructions below to check eligibility.</Text>
@@ -129,9 +128,24 @@ function AppContent() {
             }} />
           <Space />
           <Text style={[styles.text]}>When enabled the survey will be displayed immediately using a custom invite that skips the UI and immediately accepts the invite.</Text>
+          <Space />
+          <DebugContent />
         </View>
       </ScrollView>
     </SafeAreaView>
+  );
+}
+
+function DebugContent() {
+  const { version: libraryVersion } = require('./node_modules/react-native-verint-xm-sdk/package.json');
+  const [nativeSDKVersion, setNativeSDKVersion] = useState<string>('Loading...');
+
+  useEffect(() => {
+    VerintXM.getVersion().then(setNativeSDKVersion);
+  }, []);
+
+  return (
+    <Text style={[styles.text]}>VerintXM {libraryVersion} | Native SDK {nativeSDKVersion}</Text>
   );
 }
 
