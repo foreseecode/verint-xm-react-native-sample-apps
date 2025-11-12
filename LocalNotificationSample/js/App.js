@@ -40,7 +40,8 @@ class App extends Component {
     emitter.addListener(
       eventName,
       (event) => {
-          console.log("[[" + eventName + "]]");
+          const message = event && typeof event.message !== 'undefined' && event.message !== null ? ` ${event.message}` : '';
+          console.log('[[' + eventName + ']]' + message);
       });
   }
 
