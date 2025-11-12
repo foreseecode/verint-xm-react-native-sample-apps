@@ -27,7 +27,8 @@ function App() {
       const subscription = emitter.addListener(
         eventName,
         (event) => {
-          console.log("[[" + eventName + "]]" + " " + event.message);
+          const message = event && typeof event.message !== 'undefined' && event.message !== null ? ` ${event.message}` : '';
+          console.log('[[' + eventName + ']]' + message);
         }
       );
       subscriptions.push(subscription);
@@ -53,7 +54,7 @@ function App() {
     // custom invite listener
     const customInviteSubscription = verintEmitter.addListener(
       "shouldShowCustomInvite",
-      () => {
+      (data) => {
         // this demonstrates a no-invite custom invite that immediately shows the survey
         VerintXM.customInviteAccepted();
       }
