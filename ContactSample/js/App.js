@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
-import { NativeEventEmitter, NativeModules, Alert } from 'react-native';
+import { NativeEventEmitter } from 'react-native';
 
 import { 
   Text, 
@@ -16,7 +16,7 @@ import { VerintButton } from './VerintButton'
 import { VerintXM } from 'react-native-verint-xm-sdk'
 import { styles } from './styles'
 
-const Space = (props) => {
+const Space = () => {
   return (
     <View style={{height: 20}} />
   );
