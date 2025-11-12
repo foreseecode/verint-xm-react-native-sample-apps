@@ -84,7 +84,6 @@ class MainScreen extends Component {
  
     VerintXM.setDebugLogEnabled(true)
     VerintXM.startWithSiteKey("mobsdk-react-contact-sample")
-    VerintXM.setSkipPoolingCheck(true)
     VerintXM.setPreferredContactType("email")
   }
   
