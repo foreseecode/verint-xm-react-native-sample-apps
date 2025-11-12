@@ -65,7 +65,6 @@ class App extends Component {
  
     VerintXM.setDebugLogEnabled(true)
     VerintXM.startWithSiteKey("mobsdk-react-insession-sample")
-    VerintXM.setSkipPoolingCheck(true)
   }
   
   render() {
