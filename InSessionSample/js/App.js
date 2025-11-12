@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { NativeEventEmitter, NativeModules } from 'react-native';
+import { NativeEventEmitter } from 'react-native';
 
 import { 
   Text, 
@@ -14,7 +14,7 @@ import { VerintButton } from './VerintButton'
 import { styles } from './styles'
 import { VerintXM } from 'react-native-verint-xm-sdk'
 
-const Space = (props) => {
+const Space = () => {
   return (
     <View style={{height: 20}} />
   );
@@ -26,7 +26,8 @@ class App extends Component {
     emitter.addListener(
       eventName,
       (event) => {
-          console.log("[[" + eventName + "]]");
+          const message = event && typeof event.message !== 'undefined' && event.message !== null ? ` ${event.message}` : '';
+          console.log('[[' + eventName + ']]' + message);
       });
   }
 
