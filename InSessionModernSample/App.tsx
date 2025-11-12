@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React, { useState, useEffect } from 'react';
 import { NativeEventEmitter, EmitterSubscription } from 'react-native';
 import { StatusBar, useColorScheme, View } from 'react-native';
@@ -34,7 +27,7 @@ function App() {
       const subscription = emitter.addListener(
         eventName,
         (event) => {
-          console.log("[[" + eventName + "]]");
+          console.log("[[" + eventName + "]]" + " " + event.message);
         }
       );
       subscriptions.push(subscription);
@@ -60,7 +53,7 @@ function App() {
     // custom invite listener
     const customInviteSubscription = verintEmitter.addListener(
       "shouldShowCustomInvite",
-      (data) => {
+      () => {
         // this demonstrates a no-invite custom invite that immediately shows the survey
         VerintXM.customInviteAccepted();
       }
@@ -69,7 +62,6 @@ function App() {
 
     VerintXM.setDebugLogEnabled(true);
     VerintXM.startWithSiteKey("mobsdk-react-insession-sample");
-    VerintXM.setSkipPoolingCheck(true);
 
     // Cleanup function to remove all listeners
     return () => {
