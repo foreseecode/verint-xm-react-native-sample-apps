@@ -11,6 +11,7 @@ import {
   ScrollView, 
   TextInput
 } from 'react-native';
+import SegmentedControl from '@react-native-segmented-control/segmented-control';
 
 import { VerintButton } from './VerintButton'
 import { VerintXM } from 'react-native-verint-xm-sdk'
@@ -25,6 +26,15 @@ const Space = () => {
 async function getContactDetails(type, callback) {
   try {
     var details = await VerintXM.getContactDetails(type);
+    callback(details)
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+async function getPreferredContactType(callback) {
+  try {
+    var details = await VerintXM.getPreferredContactType();
     callback(details)
   } catch (e) {
     console.error(e);
@@ -85,7 +95,6 @@ class MainScreen extends Component {
  
     VerintXM.setDebugLogEnabled(true)
     VerintXM.startWithSiteKey("mobsdk-react-contact-sample")
-    VerintXM.setPreferredContactType("email")
   }
   
   render() {
@@ -143,14 +152,17 @@ class SetContactDetailsScreen extends Component {
 
     this.state={
       email: "",
-      phone: ""
+      phone: "",
+      preferredContactType: ""
     }
 
     getContactDetails("email", (details) => { this.setState({email: details ?? ""}) })
     getContactDetails("phone", (details) => { this.setState({phone: details ?? ""}) })
+    getPreferredContactType((details) => { this.setState({preferredContactType: details ?? ""}) })
   }
  
   render() {
+    const preferredContactTypes = ['email', 'phone'];
     return(
       <SafeAreaView style={styles.container}>
         <ScrollView style={{width: '90%'}} contentContainerStyle={{flexGrow : 1, justifyContent : 'flex-start', alignItems: 'center'}}>
@@ -173,14 +185,29 @@ class SetContactDetailsScreen extends Component {
             value={this.state.phone}
           />
           <Space />
+          <Text style={[styles.text]}>Preferred Contact Type:</Text>
+          <Space />
+          <SegmentedControl
+            values={preferredContactTypes}
+            selectedIndex={(() => {
+              const i = preferredContactTypes.indexOf(this.state.preferredContactType);
+              return i === -1 ? undefined : i;
+            })()}
+            style={{ width: 300 }}
+            onChange={({ nativeEvent: { selectedSegmentIndex } }) => {
+              this.setState({ preferredContactType: preferredContactTypes[selectedSegmentIndex] });
+            }}
+          />
+          <Space />
           <VerintButton
-              title="Save"
-              style={{ width: 200, height: 40 }}
-              onPress={() => { 
+            title="Save"
+            style={{ width: 200, height: 40 }}
+            onPress={() => { 
               VerintXM.setContactDetails(`${this.state.email}`, "email");
               VerintXM.setContactDetails(`${this.state.phone}`, "phone");
-              } 
-          } />
+              VerintXM.setPreferredContactType(this.state.preferredContactType);
+            }}
+          />
         </ScrollView>
     </SafeAreaView>
     );
