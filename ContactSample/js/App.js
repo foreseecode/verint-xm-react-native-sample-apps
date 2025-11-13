@@ -146,8 +146,8 @@ class SetContactDetailsScreen extends Component {
       phone: ""
     }
 
-    getContactDetails("email", (details) => { this.setState({email: details}) })
-    getContactDetails("phone", (details) => { this.setState({phone: details}) })
+    getContactDetails("email", (details) => { this.setState({email: details ?? ""}) })
+    getContactDetails("phone", (details) => { this.setState({phone: details ?? ""}) })
   }
  
   render() {
