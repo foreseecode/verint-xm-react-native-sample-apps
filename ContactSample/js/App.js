@@ -174,6 +174,7 @@ class SetContactDetailsScreen extends Component {
           <TextInput
             style={{ width: 300, height: 40, borderColor: 'gray', borderWidth: 1 }}
             autoCapitalize="none"
+            spellCheck="false"
             onChangeText={text => this.setState( {email: text} )}
             value={this.state.email}
           />
@@ -183,6 +184,7 @@ class SetContactDetailsScreen extends Component {
           <TextInput
             style={{ width: 300, height: 40, borderColor: 'gray', borderWidth: 1 }}
             autoCapitalize="none"
+            spellCheck="false"
             onChangeText={text => this.setState( {phone: text} )}
             value={this.state.phone}
           />
