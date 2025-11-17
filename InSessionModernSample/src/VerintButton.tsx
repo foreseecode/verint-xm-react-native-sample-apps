@@ -9,7 +9,7 @@ interface VerintButtonProps {
 }
 
 export const VerintButton: React.FC<VerintButtonProps> = (props) => {
-    const { title = 'Need Title', style = {}, textStyle = {}, onPress } = props;
+    const { title, style = {}, textStyle = {}, onPress } = props;
 
     return (
         <TouchableOpacity onPress={onPress} style={[styles.button, style]}>

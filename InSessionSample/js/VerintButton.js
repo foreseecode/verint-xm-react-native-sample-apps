@@ -2,11 +2,11 @@ import React from 'react';
 import { TouchableOpacity, StyleSheet, Text } from 'react-native';
 
 export const VerintButton = (props) => {
-    const { title = 'Need Title', style = {}, textStyle = {}, onPress } = props;
+    const { title, style = {}, textStyle = {}, onPress } = props;
 
     return (
         <TouchableOpacity onPress={onPress} style={[styles.button, style]}>
-            <Text style={[styles.text, textStyle]}>{props.title}</Text>
+            <Text style={[styles.text, textStyle]}>{title}</Text>
         </TouchableOpacity>
     );
 };

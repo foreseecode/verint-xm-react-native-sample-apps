@@ -37,9 +37,10 @@ Clone this repo:
 
     $ git clone https://github.com/foreseecode/react-native-sample-apps.git
 
-Once it's done, you will find 3 project folders:
+Once it's done, you will find 4 project folders:
   
     InSessionSample
+    InSessionModernSample
     ContactSample
     LocalNotificationSample
 

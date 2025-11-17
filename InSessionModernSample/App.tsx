@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React, { useState, useEffect } from 'react';
 import { NativeEventEmitter, EmitterSubscription } from 'react-native';
 import { StatusBar, useColorScheme, View } from 'react-native';
@@ -34,7 +27,8 @@ function App() {
       const subscription = emitter.addListener(
         eventName,
         (event) => {
-          console.log("[[" + eventName + "]]");
+          const message = event && typeof event.message !== 'undefined' && event.message !== null ? ` ${event.message}` : '';
+          console.log('[[' + eventName + ']]' + message);
         }
       );
       subscriptions.push(subscription);
@@ -69,7 +63,6 @@ function App() {
 
     VerintXM.setDebugLogEnabled(true);
     VerintXM.startWithSiteKey("mobsdk-react-insession-sample");
-    VerintXM.setSkipPoolingCheck(true);
 
     // Cleanup function to remove all listeners
     return () => {
