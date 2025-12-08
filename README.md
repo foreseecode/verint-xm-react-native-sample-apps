@@ -39,7 +39,6 @@ Clone this repo:
 
 Once it's done, you will find 4 project folders:
   
-    InSessionSample
     InSessionModernSample
     ContactSample
     LocalNotificationSample
@@ -61,13 +60,10 @@ To start a project, run
 
 ## Projects
 
-## InSessionSample
+## InSessionModernSample
 This sample demonstrates a basic implementation of the Verint-XM In-Session Invite code in an empty app.
 It uses a native view to show a modal dialog to the user inviting them to take a survey when they have met the 
 configured threshold.
-
-## InSessionModernSample
-This sample demonstrates the same functionality as InSessionSample, but is running with the New Architecture (Fabric).
 
 ## ContactInvitationSample
 

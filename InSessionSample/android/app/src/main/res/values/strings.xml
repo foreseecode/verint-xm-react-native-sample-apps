@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">InSessionSample</string>
-    <string name="EXP_Misc_BrandName">Verint</string>
-    <string name="EXP_Misc_ClientPrivacyPolicyURL">https://www.verint.com</string>
-    <string name="EXP_Invite_InSession_InvitePage_Title">We would appreciate your feedback from this Android application!</string>
-</resources>
