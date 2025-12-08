@@ -139,19 +139,16 @@ function AppContent({ navigation }: NavigationProps) {
 
   const [customInviteEnabled, setCustomInviteEnabled] = useState<boolean>(false);
 
-  const Space = () => {
-    return (
-      <View style={{ height: 20 }} />
-    );
-  };
-
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView style={{width: '90%'}} contentContainerStyle={{flexGrow : 1, justifyContent : 'flex-start', alignItems: 'center'}}>
+    <SafeAreaView style={styles.container} edges={['bottom', 'left', 'right']}>
+      <ScrollView 
+        style={{ width: '90%' }} 
+        contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', alignItems: 'center' }}
+        showsVerticalScrollIndicator={false}
+      >
         <Space />
         <Image source={require('./assets/verint.png')} style={{width: 167, height: 75, resizeMode: 'contain', alignItems: 'center'}} />
-
-        <View style={{flex: 1, flexDirection: 'column', alignItems: 'stretch'}}>
+        <View style={{ flex: 1, flexDirection: 'column', alignItems: 'stretch' }}>
           <Space />
           <Text style={[styles.text]}>This sample demonstrates the Contact invite type, which delivers survey links via email or SMS. Use the "Set Contact Details" page to pre-set contact details for the invite. The SDK transitions to an idle state after an invite is displayed. Use "Reset State" to test again. (This will also delete pre-set contact details.). Follow the instructions below to check eligibility. Internet connection is required.</Text>
           <Space />
@@ -210,8 +207,12 @@ function SetContactDetailsContent() {
   const preferredContactTypes = ['email', 'phone'];
   
   return(
-    <SafeAreaView style={styles.container}>
-      <ScrollView style={{width: '90%'}} contentContainerStyle={{flexGrow : 1, justifyContent : 'flex-start', alignItems: 'center'}}>
+    <SafeAreaView style={styles.container} edges={['bottom', 'left', 'right']}>
+      <ScrollView 
+        style={{ width: '90%' }} 
+        contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', alignItems: 'center' }}
+        showsVerticalScrollIndicator={false}
+      >
         <Space />
         <Image source={require('./assets/verint.png')} style={{width: 167, height: 75, resizeMode: 'contain', alignItems: 'center'}} />
         <Space />

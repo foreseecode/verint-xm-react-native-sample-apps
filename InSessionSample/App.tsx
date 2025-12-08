@@ -90,7 +90,11 @@ function AppContent() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={{ width: '90%' }} contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <ScrollView 
+        style={{ width: '90%' }} 
+        contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', alignItems: 'center' }}
+        showsVerticalScrollIndicator={false}
+      >
         <Space />
         <Image source={require('./assets/verint.png')} style={{ width: 167, height: 75, resizeMode: 'contain', alignItems: 'center' }} />
         <View style={{ flex: 1, flexDirection: 'column', alignItems: 'stretch' }}>
