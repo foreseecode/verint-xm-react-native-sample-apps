@@ -1,7 +1,14 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet, Text } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text, StyleProp, ViewStyle, TextStyle } from 'react-native';
 
-export const VerintButton = (props) => {
+interface VerintButtonProps {
+    title?: string;
+    style?: StyleProp<ViewStyle>;
+    textStyle?: StyleProp<TextStyle>;
+    onPress?: () => void;
+}
+
+export const VerintButton: React.FC<VerintButtonProps> = (props) => {
     const { title, style = {}, textStyle = {}, onPress } = props;
 
     return (
