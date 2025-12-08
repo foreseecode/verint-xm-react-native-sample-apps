@@ -37,9 +37,9 @@ Clone this repo:
 
     $ git clone https://github.com/foreseecode/react-native-sample-apps.git
 
-Once it's done, you will find 4 project folders:
+Once it's done, you will find 3 project folders:
   
-    InSessionModernSample
+    InSessionSample
     ContactSample
     LocalNotificationSample
 
@@ -60,7 +60,8 @@ To start a project, run
 
 ## Projects
 
-## InSessionModernSample
+## InSessionSample
+
 This sample demonstrates a basic implementation of the Verint-XM In-Session Invite code in an empty app.
 It uses a native view to show a modal dialog to the user inviting them to take a survey when they have met the 
 configured threshold.
