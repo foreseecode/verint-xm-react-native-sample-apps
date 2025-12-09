@@ -18,7 +18,7 @@ import SegmentedControl from '@react-native-segmented-control/segmented-control'
 import { VerintButton } from './src/VerintButton';
 import { styles } from './src/styles';
 
-import { VerintXM } from 'react-native-verint-xm-sdk';
+import { ContactType, VerintXM } from 'react-native-verint-xm-sdk';
 
 const Space = () => {
   return (
@@ -26,7 +26,7 @@ const Space = () => {
   );
 };
 
-async function getContactDetails(type: string, callback: (details: string | null) => void): Promise<void> {
+async function getContactDetails(type: ContactType, callback: (details: string | null) => void): Promise<void> {
   try {
     const details = await VerintXM.getContactDetails(type);
     callback(details);
@@ -35,7 +35,7 @@ async function getContactDetails(type: string, callback: (details: string | null
   }
 }
 
-async function getPreferredContactType(callback: (details: string | null) => void): Promise<void> {
+async function getPreferredContactType(callback: (details: ContactType | null) => void): Promise<void> {
   try {
     const details = await VerintXM.getPreferredContactType();
     callback(details);
@@ -69,7 +69,8 @@ function App() {
     addListener('onStarted', verintEmitter);
     addListener('onStartedWithError', verintEmitter);
     addListener('onFailedToStartWithError', verintEmitter);
-
+    //
+    
     // invite/survey lifecycle listeners
     addListener('onInvitePresented', verintEmitter);
     addListener('onSurveyPresented', verintEmitter);
@@ -80,29 +81,31 @@ function App() {
     addListener('onInviteCompleteWithDecline', verintEmitter);
     addListener('onInviteNotShownWithEligibilityFailed', verintEmitter);
     addListener('onInviteNotShownWithSamplingFailed', verintEmitter);
-    
-    // custom invite listener
-    const customInviteSubscription = verintEmitter.addListener(
-      "shouldShowCustomInvite",
+    //
+
+    // custom invite listeners
+    const showCustomInviteSubscription = verintEmitter.addListener(
+      'shouldShowCustomInvite',
       (data) => {
         // this demonstrates a no-invite custom invite that immediately shows the survey
         VerintXM.customInviteAccepted();
       }
     );
-    subscriptions.push(customInviteSubscription);
+    subscriptions.push(showCustomInviteSubscription);
 
-    // handler for invalid contact details
     const invalidInputSubscription = verintEmitter.addListener(
-      "shouldSetInvalidInput",
+      'shouldSetInvalidInput',
       (data: any) => {
-        Alert.alert("Invalid input! Reset state, set contact details, and try again.");
+        Alert.alert('Invalid input! Reset state, set contact details, and try again.');
         VerintXM.customInviteDeclined();
     });
     subscriptions.push(invalidInputSubscription);
 
-
+    addListener('shouldHideCustomInvite', verintEmitter);
+    //
+    
     VerintXM.setDebugLogEnabled(true);
-    VerintXM.startWithSiteKey("mobsdk-react-contact-sample");
+    VerintXM.startWithSiteKey('mobsdk-react-contact-sample');
 
     // Cleanup function to remove all listeners
     return () => {
@@ -116,14 +119,14 @@ function App() {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen 
-            name="Main" 
+            name='Main' 
             component={AppContent}
-            options={{ title: "Contact Invite Sample" }}
+            options={{ title: 'Contact Invite Sample' }}
           />
           <Stack.Screen 
-            name="SetContactDetails" 
+            name='SetContactDetails'
             component={SetContactDetailsContent}
-            options={{ title: "Set Contact Details" }}
+            options={{ title: 'Set Contact Details' }}
           />
         </Stack.Navigator>
       </NavigationContainer>
@@ -156,23 +159,23 @@ function AppContent({ navigation }: NavigationProps) {
           <Space />
           <Text style={[styles.text]}>Option 2: Significant events can also be used to trigger an invite. Click the "Increment Significant Event" button below a few times, then click the "Check Eligibility" button to trigger an invite.</Text>
           <VerintButton
-            title="Check Eligibility"
+            title='Check Eligibility'
             onPress={() => { 
               // Launch an invite as a demo
               VerintXM.checkEligibility();
             }} />
           <VerintButton
-            title="Increment Significant Event"
+            title='Increment Significant Event'
             onPress={() => { 
               // Increment the significant event count so that we're eligible for an invite
               // based on the criteria in the config
-              VerintXM.incrementSignificantEvent("instant_invite");
+              VerintXM.incrementSignificantEvent('instant_invite');
             }} />
           <VerintButton
-            title="Set Contact Details"
+            title='Set Contact Details'
             onPress={() => { navigation.navigate('SetContactDetails'); }} />
           <VerintButton
-            title="Reset State"
+            title='Reset State'
             onPress={() => { VerintXM.resetState(); }} />
           <Space />
           <Text style={[styles.text]}>Once the invite is shown, the SDK drops into an idle state until the repeat days have elapsed. Click here to reset the state of the SDK.</Text>
@@ -194,17 +197,17 @@ function AppContent({ navigation }: NavigationProps) {
 }
 
 function SetContactDetailsContent() {
-    const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [preferredContactType, setPreferredContactType] = useState("");
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [preferredContactType, setPreferredContactType] = useState<ContactType>('unknown');
 
   useEffect(() => {
-    getContactDetails("email", (details) => { setEmail(details ?? ""); });
-    getContactDetails("phone", (details) => { setPhone(details ?? ""); });
-    getPreferredContactType((details) => { setPreferredContactType(details ?? ""); });
+    getContactDetails('email', (details) => { setEmail(details ?? ''); });
+    getContactDetails('phone', (details) => { setPhone(details ?? ''); });
+    getPreferredContactType((details) => { setPreferredContactType(details ?? 'unknown'); });
   }, []);
  
-  const preferredContactTypes = ['email', 'phone'];
+  const preferredContactTypes: ContactType[] = ['email', 'phone'];
   
   return(
     <SafeAreaView style={styles.container} edges={['bottom', 'left', 'right']}>
@@ -220,7 +223,7 @@ function SetContactDetailsContent() {
         <Space />
         <TextInput
           style={{ width: 300, height: 40, borderColor: 'gray', borderWidth: 1 }}
-          autoCapitalize="none"
+          autoCapitalize='none'
           autoCorrect={false}
           onChangeText={text => setEmail(text)}
           value={email}
@@ -230,7 +233,7 @@ function SetContactDetailsContent() {
         <Space />
         <TextInput
           style={{ width: 300, height: 40, borderColor: 'gray', borderWidth: 1 }}
-          autoCapitalize="none"
+          autoCapitalize='none'
           autoCorrect={false}
           onChangeText={text => setPhone(text)}
           value={phone}
@@ -251,11 +254,11 @@ function SetContactDetailsContent() {
         />
         <Space />
         <VerintButton
-          title="Save"
+          title='Save'
           style={{ width: 200, height: 40 }}
           onPress={() => { 
-            VerintXM.setContactDetails(`${email}`, "email");
-            VerintXM.setContactDetails(`${phone}`, "phone");
+            VerintXM.setContactDetails(`${email}`, 'email');
+            VerintXM.setContactDetails(`${phone}`, 'phone');
             VerintXM.setPreferredContactType(preferredContactType);
           }}
         />
