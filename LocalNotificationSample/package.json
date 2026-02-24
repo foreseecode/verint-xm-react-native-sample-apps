@@ -13,7 +13,7 @@
     "react": "19.1.1",
     "react-native": "0.82.1",
     "react-native-safe-area-context": "^5.5.2",
-    "react-native-verint-xm-sdk": "^3.2.1"
+    "react-native-verint-xm-sdk": "file:../../verint-xm-react-native-sdk/react-native-verint-xm-sdk-3.3.0.tgz"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

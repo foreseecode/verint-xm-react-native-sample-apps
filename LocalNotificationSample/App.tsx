@@ -69,7 +69,7 @@ function App() {
     }
  
     VerintXM.setDebugLogEnabled(true);
-    VerintXM.startWithSiteKey('mobsdk-react-localnotification-sample');
+    VerintXM.startWithSiteKey('mobsdk-react-localnotification-sample-exitsurvey');
 
     // Cleanup function to remove all listeners
     return () => {
