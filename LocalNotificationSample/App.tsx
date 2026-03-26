@@ -42,6 +42,8 @@ function App() {
         (event) => {
           const message = event && typeof event.message !== 'undefined' && event.message !== null ? ` ${event.message}` : '';
           console.log('[[' + eventName + ']]' + message);
+              VerintXM.setSignificantEventCount("international_transfer_add", 1);
+              VerintXM.setSignificantEventCount("lang_en", 1);
         }
       );
       subscriptions.push(subscription);
@@ -69,7 +71,7 @@ function App() {
     }
  
     VerintXM.setDebugLogEnabled(true);
-    VerintXM.startWithSiteKey('mobsdk-react-localnotification-sample');
+    VerintXM.startWithConfigurationUrl("https://ucm-eu.verint-cdn.com/files/sites/bank-dhofar/draft/msdk-config.json");
 
     // Cleanup function to remove all listeners
     return () => {
