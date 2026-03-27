@@ -42,8 +42,6 @@ function App() {
         (event) => {
           const message = event && typeof event.message !== 'undefined' && event.message !== null ? ` ${event.message}` : '';
           console.log('[[' + eventName + ']]' + message);
-              VerintXM.setSignificantEventCount("international_transfer_add", 1);
-              VerintXM.setSignificantEventCount("lang_en", 1);
         }
       );
       subscriptions.push(subscription);
