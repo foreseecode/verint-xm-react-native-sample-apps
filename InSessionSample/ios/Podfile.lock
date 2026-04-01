@@ -1869,10 +1869,10 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - react-native-verint-xm-sdk (3.2.1):
+  - react-native-verint-xm-sdk (3.3.0):
     - React-Core
-    - Verint-XM (= 7.5.4)
-    - Verint-XM/SurveyManagement (= 7.5.4)
+    - Verint-XM (= 7.7.0)
+    - Verint-XM/SurveyManagement (= 7.7.0)
   - React-NativeModulesApple (0.82.1):
     - boost
     - DoubleConversion
@@ -2472,12 +2472,12 @@ PODS:
     - SocketRocket
     - Yoga
   - SocketRocket (0.7.1)
-  - Verint-XM (7.5.4):
-    - Verint-XM/SurveyManagement (= 7.5.4)
-  - Verint-XM/Core (7.5.4)
-  - Verint-XM/Predictive (7.5.4):
+  - Verint-XM (7.7.0):
+    - Verint-XM/SurveyManagement (= 7.7.0)
+  - Verint-XM/Core (7.7.0)
+  - Verint-XM/Predictive (7.7.0):
     - Verint-XM/Core
-  - Verint-XM/SurveyManagement (7.5.4):
+  - Verint-XM/SurveyManagement (7.7.0):
     - Verint-XM/Predictive
   - Yoga (0.0.0)
 
@@ -2763,7 +2763,7 @@ SPEC CHECKSUMS:
   React-Mapbuffer: 06d59c448da7e34eb05b3fb2189e12f6a30fec57
   React-microtasksnativemodule: d1ee999dc9052e23f6488b730fa2d383a4ea40e5
   react-native-safe-area-context: c6e2edd1c1da07bdce287fa9d9e60c5f7b514616
-  react-native-verint-xm-sdk: e18a7111640c486ce1ded6d7a8ec58d8e0a4ce3b
+  react-native-verint-xm-sdk: 66ff5d496d96d375ac91c2b2d5678a0bfff075c2
   React-NativeModulesApple: 46690a0fe94ec28fc6fc686ec797b911d251ded0
   React-oscompat: 95875e81f5d4b3c7b2c888d5bd2c9d83450d8bdb
   React-perflogger: 2e229bf33e42c094fd64516d89ec1187a2b79b5b
@@ -2798,7 +2798,7 @@ SPEC CHECKSUMS:
   ReactCommon: 804dc80944fa90b86800b43c871742ec005ca424
   RNScreens: 7f643ee0fd1407dc5085c7795460bd93da113b8f
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
-  Verint-XM: cbf7432f3190491c3299cc43e5001b7b3241f151
+  Verint-XM: 1f7d8653c589bbf60546d987c70fbaab3489e380
   Yoga: 689c8e04277f3ad631e60fe2a08e41d411daf8eb
 
 PODFILE CHECKSUM: f8fb8ae4bc3fbb904d13e112fedec7e1a2bf1d65
