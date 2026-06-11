@@ -1873,8 +1873,8 @@ PODS:
     - React-Core
   - react-native-verint-xm-sdk (3.3.0):
     - React-Core
-    - Verint-XM (= 7.7.0)
-    - Verint-XM/SurveyManagement (= 7.7.0)
+    - Verint-XM (= 7.7.2-alpha.1)
+    - Verint-XM/SurveyManagement (= 7.7.2-alpha.1)
   - React-NativeModulesApple (0.82.1):
     - boost
     - DoubleConversion
@@ -2474,12 +2474,12 @@ PODS:
     - SocketRocket
     - Yoga
   - SocketRocket (0.7.1)
-  - Verint-XM (7.7.0):
-    - Verint-XM/SurveyManagement (= 7.7.0)
-  - Verint-XM/Core (7.7.0)
-  - Verint-XM/Predictive (7.7.0):
+  - Verint-XM (7.7.2-alpha.1):
+    - Verint-XM/SurveyManagement (= 7.7.2-alpha.1)
+  - Verint-XM/Core (7.7.2-alpha.1)
+  - Verint-XM/Predictive (7.7.2-alpha.1):
     - Verint-XM/Core
-  - Verint-XM/SurveyManagement (7.7.0):
+  - Verint-XM/SurveyManagement (7.7.2-alpha.1):
     - Verint-XM/Predictive
   - Yoga (0.0.0)
 
@@ -2769,7 +2769,7 @@ SPEC CHECKSUMS:
   React-microtasksnativemodule: d1ee999dc9052e23f6488b730fa2d383a4ea40e5
   react-native-safe-area-context: c00143b4823773bba23f2f19f85663ae89ceb460
   react-native-segmented-control: bf6e0032726727498e18dd437ae88afcdbc18e99
-  react-native-verint-xm-sdk: 66ff5d496d96d375ac91c2b2d5678a0bfff075c2
+  react-native-verint-xm-sdk: 983e3160f5ea56d38fa83bf9f34730d362e889c3
   React-NativeModulesApple: 46690a0fe94ec28fc6fc686ec797b911d251ded0
   React-oscompat: 95875e81f5d4b3c7b2c888d5bd2c9d83450d8bdb
   React-perflogger: 2e229bf33e42c094fd64516d89ec1187a2b79b5b
@@ -2804,7 +2804,7 @@ SPEC CHECKSUMS:
   ReactCommon: 804dc80944fa90b86800b43c871742ec005ca424
   RNScreens: d821082c6dd1cb397cc0c98b026eeafaa68be479
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
-  Verint-XM: 1f7d8653c589bbf60546d987c70fbaab3489e380
+  Verint-XM: 2a90349f6c6c573b4b309822a01b159b89362119
   Yoga: 689c8e04277f3ad631e60fe2a08e41d411daf8eb
 
 PODFILE CHECKSUM: a63c9f49a4637c8e5311e308fab3922609b5d054
