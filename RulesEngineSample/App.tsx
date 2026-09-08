@@ -62,7 +62,62 @@ function App() {
     subscriptions.push(customInviteSubscription);
 
     VerintXM.setDebugLogEnabled(true);
-    VerintXM.startWithSiteKey("mobsdk-react-insession-sample");
+
+    const configuration = {
+      "rulesEngine": {
+        "enabled": true,
+        "stories": [
+          {
+            "name": "Custom_Step_Story",
+            "enabled": true,
+            "repeatAfter": "10m",
+            "steps": [
+              {
+                "stepName": "checkSignificantEvent",
+                "name": "Custom_Step_Story",
+                "value": 1
+              },
+              {
+                "stepName": "printLog",
+                "message": "Hello from the factory step!"
+              },
+              {
+                "stepName": "printAnotherLog"
+              }
+            ]
+          },
+          {
+          "name": "Show_Invite",
+          "enabled": true,
+          "repeatAfter": "1m",
+          "steps": [
+            {
+              "stepName": "checkSignificantEvent",
+              "name": "Show_Invite",
+              "value": 1
+            },
+            {
+              "stepName":"showInvite"
+            }
+          ]
+        }
+        ]
+      }
+    };
+
+    // Custom steps should be registered before SDK started
+
+    VerintXM.registerCustomStep('printLog', async (params) => {
+      console.log("Message from the custom factory step: " + (params.message ?? 'No message provided'));
+      return true;
+    });
+
+    VerintXM.registerCustomStep('printAnotherLog', async (params) => {
+      console.log("Message from the another custom factory step: " + (params.message ?? 'No message provided'));
+      return true;
+    });
+
+    VerintXM.start(configuration);
 
     // Cleanup function to remove all listeners
     return () => {
@@ -98,7 +153,23 @@ function AppContent() {
         <Space />
         <Image source={require('./assets/verint.png')} style={{ width: 167, height: 75, resizeMode: 'contain', alignItems: 'center' }} />
         <View style={{ flex: 1, flexDirection: 'column', alignItems: 'stretch' }}>
+          
           <Space />
+
+          <VerintButton
+            title="Show invite"
+            onPress={() => {
+              VerintXM.incrementSignificantEvent("Show_Invite")
+            }} />
+
+            <VerintButton
+            title="Custom Step Story"
+            onPress={() => {
+              VerintXM.incrementSignificantEvent("Custom_Step_Story")
+            }} />
+
+          <Space />
+
           <Text style={[styles.text]}>This sample demonstrates the In Session type, which denotes that the survey is presented at the point where the user accepts the invitation. Follow the instructions below to check eligibility.</Text>
           <Space />
           <Text style={[styles.text]}>This app is using the significant event criteria. This criteria increments each time when the "Check Eligibility" button is clicked. The threshold for the significant event criteria is set to 1.</Text>
