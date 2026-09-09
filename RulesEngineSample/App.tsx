@@ -70,7 +70,7 @@ function App() {
           {
             "name": "Custom_Step_Story",
             "enabled": true,
-            "repeatAfter": "10m",
+            "repeatAfter": "20s",
             "steps": [
               {
                 "stepName": "checkSignificantEvent",
@@ -82,7 +82,9 @@ function App() {
                 "message": "Hello from the factory step!"
               },
               {
-                "stepName": "printAnotherLog"
+                "stepName": "printAnotherLog",
+                "failBehavior": "abort_story",
+                "count": 3
               }
             ]
           },
@@ -114,7 +116,16 @@ function App() {
 
     VerintXM.registerCustomStep('printAnotherLog', async (params) => {
       console.log("Message from the another custom factory step: " + (params.message ?? 'No message provided'));
-      return true;
+      try {
+        if (params.count as number > 4) {
+          console.log("Count is greater than 4: " + params.count);
+          return true;
+        }
+      } catch (error) {
+        console.error("Error in printAnotherLog step: ", error);
+      }
+      console.log("Count is less than 4: " + params.count);
+      return false;
     });
 
     VerintXM.start(configuration);
